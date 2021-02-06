@@ -1,9 +1,12 @@
 # kindle-pdf-scraper
 Node.js/Puppeteer scraper able to download given book from Kindle Cloud Reader as PDF.  
+
 Scraper performs following actions in Kindle Cloud Reader:
 - log into the app
 - set page layout in the app
 - press next-page button for each page and download each page as PDF with `page.pdf` interface  
+
+This process was implemented in 02/2021. It is possible that this implementation will need to be adjusted in the future.  
 
 Due to lack of Node.js PDF libraries the merging was implemented with Python 3/PyPDF2.
 
