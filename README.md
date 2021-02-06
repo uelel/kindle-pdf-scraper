@@ -10,12 +10,15 @@ This process was implemented in 02/2021. It is possible that this implementation
 
 Due to lack of Node.js PDF libraries the merging was implemented with Python 3/PyPDF2.
 
+___
+
 ## Prerequisities
 - Node.js, npm cli
 - Puppeteer ^7.0.1
 - argparse ^2.0.1
 - Python 3, PyPDF2 package (for PDF merging)
 
+___
 
 ## Usage
 `npm install`  
@@ -39,12 +42,16 @@ optional arguments:
                         PDF page color white/sepia/black (default white)
  ```
  
+ ___
+ 
  ## Recommendations
  Kindle Cloud Reader makes it difficult to render text on PDF pages. From that reason it is recommended to set up PDF layout first. Start with changing these parameters:
  - font size (-fs) and page margin (-pm) arguments
  - browser viewport : change `defaultViewport` values of `chromeOptions` object in the constructor  
  
  If PDF layout is still not sufficient enough, continue with changing `printOptions` object in the constructor.  
+ 
+ ___
  
  ## Known issues
  - browser sometimes looses track of `iframe` with page content (`this.sel.iframe` selector). It was not possible to reproduce the error
