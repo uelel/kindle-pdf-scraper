@@ -23,9 +23,8 @@ ___
 ## Usage
 `npm install`  
 
-`
-node scrape.js -url "https://read.amazon.com/?asin=XXXXXXXXXX" -email "xxx@yy.zz" -pwd "d7nkb1!3423j" -pages 200 -path "./my-book/" -fs 0 -pm 1 -pc "white"`  
-`
+`node scrape.js -url "https://read.amazon.com/?asin=XXXXXXXXXX" -email "xxx@yy.zz" -pwd "d7nkb1!3423j" -pages 200 -path "./my-book/" -fs 0 -pm 1 -pc "white"`  
+
 ```
 optional arguments:  
   -h, --help            show this help message and exit
