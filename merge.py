@@ -1,4 +1,5 @@
 import sys
+import argparse
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 def mergePdf(path=None,
@@ -48,3 +49,27 @@ def mergePdf(path=None,
     finally:
         for f in inputStreams:
             f.close()
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description='Merge given scraped PDF pages into single PDF book')
+    parser.add_argument('-path', type=str, required=True, help="Path to scraped PDF pages with name pattern \d+/pdf (REQUIRED)")
+    parser.add_argument('-fr', type=int, required=True, help="Number of first PDF page to merge (REQUIRED)")
+    parser.add_argument('-to', type=int, required=True, help="Number of last PDF page to merge (REQUIRED)")
+    parser.add_argument('-name', type=str, required=True, help="Name of final PDF file (REQUIRED)")
+    parser.add_argument('-l', '--left', type=int, nargs='?', default=0, help="Crop left margin of all pages (px) (default 0)")
+    parser.add_argument('-r', '--right', type=int, nargs='?', default=0, help="Crop right margin of all pages (px) (default 0)")
+    parser.add_argument('-t', '--top',  type=int, nargs='?', default=0, help="Crop top margin of all pages (px) (default 0)")
+    parser.add_argument('-b', '--bottom', type=int, nargs='?', default=0, help="Crop bottom margin of all pages (px) (default 0)")
+    args = parser.parse_args()
+
+
+    mergePdf(path=args.path,
+             startNo=args.fr,
+             stopNo=args.to,
+             fileName=args.name,
+             cropLeft=args.left,
+             cropRight=args.right,
+             cropTop=args.top,
+             cropBottom=args.bottom)
