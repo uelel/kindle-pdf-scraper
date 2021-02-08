@@ -14,7 +14,7 @@ ___
 
 ## Prerequisities
 - Node.js, npm cli
-- Puppeteer ^7.0.1
+- Puppeteer ^7.0.1 with built-in Chromium
 - argparse ^2.0.1
 - Python 3, PyPDF2 package (for PDF merging)
 
@@ -41,10 +41,33 @@ optional arguments:
                         PDF page color white/sepia/black (default white)
  ```
  
+ `python merge.py -path ./my-book/ -fr 1 -to 200 -name final.pdf -l 200`
+ 
+ ```
+ usage: merge.py [-h] -path PATH -fr FR -to TO -name NAME [-l [LEFT]] [-r [RIGHT]] [-t [TOP]] [-b [BOTTOM]]
+
+Merge given scraped PDF pages into single PDF book
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -path PATH            Path to scraped PDF pages with name pattern \d+/pdf (REQUIRED)
+  -fr FR                Number of first PDF page to merge (REQUIRED)
+  -to TO                Number of last PDF page to merge (REQUIRED)
+  -name NAME            Name of final PDF file (REQUIRED)
+  -l [LEFT], --left [LEFT]
+                        Crop left margin of all pages (px) (default 0)
+  -r [RIGHT], --right [RIGHT]
+                        Crop right margin of all pages (px) (default 0)
+  -t [TOP], --top [TOP]
+                        Crop top margin of all pages (px) (default 0)
+  -b [BOTTOM], --bottom [BOTTOM]
+                        Crop bottom margin of all pages (px) (default 0)
+ ```
+ 
  ___
  
  ## Recommendations
- Kindle Cloud Reader makes it difficult to render text on PDF pages. From that reason it is recommended to set up PDF layout first. Start with changing these parameters:
+ Kindle Cloud Reader makes it difficult to render text on PDF pages. For that reason it is recommended to set up PDF layout first. Start with changing these parameters:
  - font size (-fs) and page margin (-pm) arguments
  - browser viewport : change `defaultViewport` values of `chromeOptions` object in the constructor  
  
